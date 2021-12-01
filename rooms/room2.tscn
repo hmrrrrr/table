@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 6, 0.25, 6 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 12, 0.5, 12 )
+
+[sub_resource type="SpatialMaterial" id=3]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 3, 0.25, 6 )
+
+[sub_resource type="CubeMesh" id=5]
+size = Vector3( 6, 0.5, 12 )
+
+[sub_resource type="PhysicsMaterial" id=6]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 1, 1, 6 )
+
+[sub_resource type="CubeMesh" id=8]
+size = Vector3( 2, 2, 12 )
+
+[sub_resource type="SpatialMaterial" id=9]
+emission_enabled = true
+emission = Color( 0.941176, 0, 0.815686, 1 )
+emission_energy = 1.0
+emission_operator = 0
+emission_on_uv2 = false
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 1, 6, 6 )
+
+[sub_resource type="CubeMesh" id=11]
+size = Vector3( 2, 12, 12 )
+
+[node name="room1" type="Spatial"]
+
+[node name="platform" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="platform"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="platform"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00620651, 0.0263591, -0.0141344 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="platform2" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="platform2"]
+shape = SubResource( 4 )
+
+[node name="MeshInstance" type="MeshInstance" parent="platform2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00620651, 0.0263591, -0.0141344 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 3 )
+
+[node name="bouncy" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.713, 1, 0 )
+physics_material_override = SubResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="bouncy"]
+shape = SubResource( 7 )
+
+[node name="MeshInstance" type="MeshInstance" parent="bouncy"]
+mesh = SubResource( 8 )
+material/0 = SubResource( 9 )
+
+[node name="wall" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7, 6, -5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="wall"]
+shape = SubResource( 10 )
+
+[node name="MeshInstance" type="MeshInstance" parent="wall"]
+mesh = SubResource( 11 )
+material/0 = null
