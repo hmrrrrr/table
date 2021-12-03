@@ -50,6 +50,8 @@ func _on_player_exit_room(side):
 	for l in a:
 		for l2 in l:
 			validRooms.append(l2)
+	if len(validRooms) > 1 and curRoom in validRooms:
+		validRooms.remove(validRooms.find(curRoom))
 	var b = validRooms[randi()%len(validRooms)]
 	curRoom = b
 	
