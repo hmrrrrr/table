@@ -56,7 +56,9 @@ func _on_player_exit_room(side):
 	
 	walls[roomData[curRoom][1]].translation.y = -192
 	
-	Global.player.newRoom(sideStart[oppside[side]])
+	for p in Global.players:
+		if p is RigidBody:
+			p.newRoom(sideStart[oppside[side]])
 
 
 func _on_player_die():
