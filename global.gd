@@ -1,37 +1,47 @@
 extends Node
-
+var roomCount = 0
 var player
+var camera
 var dir = Directory.new()
 var rooms = []
-var roomData
+var roomData = {}
 var sideStart = {
 	'left': Vector3(-10,1,0),
 	'right': Vector3(10,1,0),
 	'up': Vector3(0,1,-5.5),
 	'down': Vector3(0,1,5.5)
 }
+var roomMatrix
+var roomMatrixB
 func _ready():
+	for _i in range(100):
+		rooms.append(0)
 	if dir.open('rooms') == OK:
-		print('test')
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
 			if !dir.current_is_dir():
-				rooms.append(load('rooms/'+file_name))
+				rooms[int(file_name.substr(4,file_name.find('.')-4))] = load('rooms/'+file_name)
+				print('loaded file ',file_name,' as room ',int(file_name.substr(4,file_name.find('.')-4)))
+				roomCount += 1
 			file_name = dir.get_next()
-	rooms.remove(0)
-
-	roomData = {
-		rooms[0]: ['left','right'],
-		rooms[1]: ['left','up'],
-		rooms[2]: ['left','down'],
-		rooms[3]: ['right','left'],
-		rooms[4]: ['right','up'],
-		rooms[5]: ['right','down'],
-		rooms[6]: ['up','right'],
-		rooms[7]: ['up','left'], 
-		rooms[8]: ['up','down'],}
-		#rooms[9]: ['down','up'],
-		#rooms[10]:['down','right'],
-		#rooms[11]:['down','left']
-	#}
+	
+	roomMatrix = [
+		#left right up down entrance
+		[[],[rooms[4]],[rooms[8]],[]],#left exit
+		[[rooms[1]],[],[rooms[7]],[rooms[10]]],#right
+		[[rooms[2]],[rooms[5]],[],[rooms[11]]],#up
+		[[rooms[3]],[rooms[6]],[rooms[9]],[]],#down
+	]
+	roomMatrixB = [
+		[[],[],[],[]],
+		[[],[],[],[]],
+		[[],[],[],[]],
+		[[],[],[],[]]
+	]
+	
+	for row in range(len(roomMatrix)):
+		for col in range(len(roomMatrix[row])):
+			for room in roomMatrix[row][col]:
+				roomData[room] = [sideStart.keys()[col],sideStart.keys()[row]]
+			roomMatrixB[col][row] = roomMatrix[row][col]

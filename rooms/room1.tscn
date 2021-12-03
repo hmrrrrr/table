@@ -46,13 +46,24 @@ mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="bouncy" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, 5 )
 physics_material_override = SubResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="bouncy"]
 shape = SubResource( 5 )
 
 [node name="MeshInstance" type="MeshInstance" parent="bouncy"]
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="bouncy3" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 1, -5 )
+physics_material_override = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="bouncy3"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="bouncy3"]
 mesh = SubResource( 6 )
 material/0 = SubResource( 7 )
 

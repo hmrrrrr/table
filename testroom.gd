@@ -18,8 +18,12 @@ func _ready():
 	add_child(inst)
 	Global.player.newRoom(Global.sideStart[Global.roomData[room][0]])
 	Global.player.respawnPos = Global.sideStart[Global.roomData[room][0]]
-	walls[Global.roomData[room][1]].translation = -192
+	walls[Global.roomData[room][1]].translation.y = -192
 
+func _input(event):
+	if event.is_action_pressed("reset"):
+		Global.player.newRoom(Global.sideStart[Global.roomData[room][0]])
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
