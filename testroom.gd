@@ -16,15 +16,13 @@ var inst
 func _ready():
 	inst = room.instance()
 	add_child(inst)
-	for p in Global.players:
-		p.newRoom(Global.sideStart[Global.roomData[room][0]])
-		p.respawnPos = Global.sideStart[Global.roomData[room][0]]
+	Global.player.newRoom(Global.sideStart[Global.roomData[room][0]])
+	Global.player.respawnPos = Global.sideStart[Global.roomData[room][0]]
 	walls[Global.roomData[room][1]].translation.y = -192
 
 func _input(event):
 	if event.is_action_pressed("reset"):
-		for p in Global.players:
-			p.newRoom(Global.sideStart[Global.roomData[room][0]])
+		Global.player.newRoom(Global.sideStart[Global.roomData[room][0]])
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

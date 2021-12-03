@@ -90,10 +90,6 @@ script = ExtResource( 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
-leftControl = "move_left"
-rightControl = "move_right"
-upControl = "move_up"
-downControl = "move_down"
 
 [node name="platform" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.9, 0 )
@@ -106,15 +102,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00620651, 0.0263596, -0.014
 mesh = SubResource( 5 )
 material/0 = SubResource( 3 )
 
-[node name="player2" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
-leftControl = "move_left2"
-rightControl = "move_right2"
-upControl = "move_up2"
-downControl = "move_down2"
-color = Color( 1, 0, 0, 1 )
-
 [connection signal="die" from="player" to="." method="_on_player_die"]
 [connection signal="exit_room" from="player" to="." method="_on_player_exit_room"]
-[connection signal="die" from="player2" to="." method="_on_player_die"]
-[connection signal="exit_room" from="player2" to="." method="_on_player_exit_room"]

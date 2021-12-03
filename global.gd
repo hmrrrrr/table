@@ -1,6 +1,6 @@
 extends Node
 var roomCount = 0
-var players = []
+var player
 var camera
 var dir = Directory.new()
 var rooms = []
