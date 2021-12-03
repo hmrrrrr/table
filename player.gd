@@ -23,7 +23,6 @@ func newRoom(p):
 	linear_velocity /= 3
 	
 
-
 func _integrate_forces(state):
 	linear_velocity.x += speed*(Input.get_action_strength("move_right")-Input.get_action_strength("move_left"))
 	linear_velocity.z += speed*(Input.get_action_strength("move_down")-Input.get_action_strength("move_up"))

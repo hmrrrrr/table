@@ -23,6 +23,8 @@ var inst
 var score = 0
 var dir = Directory.new()
 
+var validRooms
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -44,11 +46,12 @@ func _on_player_exit_room(side):
 	walls[side].translation.y = 0
 	
 	var a = Global.roomMatrixB[Global.sideStart.keys().find(oppside[side])]
-	var b = a[randi()%len(a)]
-	while len(b) == 0:
-		b = a[randi()%len(a)]
-	var c = b[randi()%len(b)]
-	curRoom = c
+	validRooms = []
+	for l in a:
+		for l2 in l:
+			validRooms.append(l2)
+	var b = validRooms[randi()%len(validRooms)]
+	curRoom = b
 	
 	roomInst.queue_free()
 	roomInst = curRoom.instance()

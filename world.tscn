@@ -86,6 +86,7 @@ light_energy = 0.77
 light_specular = 0.56
 shadow_enabled = true
 omni_range = 34.4
+omni_shadow_mode = 0
 script = ExtResource( 2 )
 
 [node name="player" parent="." instance=ExtResource( 1 )]
