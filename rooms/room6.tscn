@@ -26,7 +26,6 @@ size = Vector3( 8, 0.5, 12 )
 transform = Transform( 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, 0, 0, 1, -7, 3, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="platform"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="platform"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://testroom.gd" type="Script" id=1]
-[ext_resource path="res://rooms/room5.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/room12.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://DirectionalLight.gd" type="Script" id=4]
 [ext_resource path="res://Camera.tscn" type="PackedScene" id=5]

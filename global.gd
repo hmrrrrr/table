@@ -28,7 +28,7 @@ func _ready():
 	
 	roomMatrix = [
 		#left right up down entrance
-		[[],[rooms[4]],[rooms[8]],[]],#left exit
+		[[],[rooms[4]],[rooms[8]],[rooms[12]]],#left exit
 		[[rooms[1]],[],[rooms[7]],[rooms[10]]],#right
 		[[rooms[2]],[rooms[5]],[],[rooms[11]]],#up
 		[[rooms[3]],[rooms[6]],[rooms[9]],[]],#down
@@ -43,5 +43,5 @@ func _ready():
 	for row in range(len(roomMatrix)):
 		for col in range(len(roomMatrix[row])):
 			for room in roomMatrix[row][col]:
-				roomData[room] = [sideStart.keys()[col],sideStart.keys()[row]]
+				roomData[room]=[sideStart.keys()[col],sideStart.keys()[row]]
 			roomMatrixB[col][row] = roomMatrix[row][col]

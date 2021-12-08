@@ -1,0 +1,10 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://textures/square_floor_ao_1k.png" type="Texture" id=1]
+
+[resource]
+flags_transparent = true
+params_blend_mode = 3
+metallic = 0.29
+metallic_texture = ExtResource( 1 )
+metallic_texture_channel = 4

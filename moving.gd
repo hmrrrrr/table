@@ -1,5 +1,6 @@
 extends MeshInstance
 
+export var speed = 0.5
 export(Array,NodePath) var points
 var curPoint = 0
 var pos
@@ -14,5 +15,5 @@ func _ready():
 
 func _on_Timer_timeout():
 	curPoint = (curPoint+1)%(len(points))
-	$Tween.interpolate_property(self,'translation',translation,get_node(points[curPoint]).translation,0.5,Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(self,'translation',translation,get_node(points[curPoint]).translation,speed,Tween.EASE_IN_OUT)
 	$Tween.start()
