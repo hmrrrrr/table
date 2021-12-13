@@ -29,7 +29,7 @@ func _ready():
 	roomMatrix = [
 		#left right up down entrance
 		[[],[rooms[4]],[rooms[8]],[rooms[12]]],#left exit
-		[[rooms[1]],[],[rooms[7]],[rooms[10]]],#right
+		[[rooms[1],rooms[13]],[],[rooms[7]],[rooms[10]]],#right
 		[[rooms[2]],[rooms[5]],[],[rooms[11]]],#up
 		[[rooms[3]],[rooms[6]],[rooms[9]],[]],#down
 	]
