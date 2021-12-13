@@ -16,15 +16,15 @@ var roomMatrixB
 func _ready():
 	for _i in range(100):
 		rooms.append(0)
-	if dir.open('rooms') == OK:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir():
-				rooms[int(file_name.substr(4,file_name.find('.')-4))] = load('rooms/'+file_name)
-				print('loaded file ',file_name,' as room ',int(file_name.substr(4,file_name.find('.')-4)))
-				roomCount += 1
-			file_name = dir.get_next()
+	dir.open('res://rooms')
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while file_name != "":
+		if !dir.current_is_dir():
+			rooms[int(file_name.substr(4,file_name.find('.')-4))] = load('res://rooms/'+file_name)
+			print('loaded file ',file_name,' as room ',int(file_name.substr(4,file_name.find('.')-4)))
+			roomCount += 1
+		file_name = dir.get_next()
 	
 	roomMatrix = [
 		#left right up down entrance
